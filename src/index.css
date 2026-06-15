@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+  overflow: hidden; /* Prevent scrolls during particle motion */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--p-opacity, 0.8);
+  }
+  90% {
+    opacity: var(--p-opacity, 0.8);
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(var(--sway-x, 30px)) rotate(var(--rot-deg, 180deg));
+    opacity: 0;
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(calc(100vh + 100px)) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--p-opacity, 0.95);
+  }
+  90% {
+    opacity: var(--p-opacity, 0.95);
+  }
+  100% {
+    transform: translateY(-150px) translateX(var(--sway-x, -30px)) rotate(var(--rot-deg, -10deg));
+    opacity: 0;
+  }
+}
+
+.animate-fall {
+  animation: fall var(--anim-duration, 4s) linear infinite;
+  animation-delay: var(--anim-delay, 0s);
+  animation-fill-mode: both;
+}
+
+.animate-rise {
+  animation: rise var(--anim-duration, 5s) linear infinite;
+  animation-delay: var(--anim-delay, 0s);
+  animation-fill-mode: both;
+}
+
+/* Custom subtle scrollbar just in case */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+

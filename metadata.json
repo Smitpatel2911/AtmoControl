@@ -1,0 +1,6 @@
+{
+  "name": "Snowflakes and Balloons Effects",
+  "description": "An elegant, formal application featuring configurable snowflake-fall and balloon-float animation effects with 5-second duration timers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
